@@ -2,7 +2,10 @@
 // Address all the TODOs to make the tests pass!
 // Execute `rustlings hint structs2` or use the `hint` watch subcommand for a hint.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 49a6a368ec190759c9dec4c236d73695d2a616ed
 #[derive(Debug)]
 struct Order {
     name: String,

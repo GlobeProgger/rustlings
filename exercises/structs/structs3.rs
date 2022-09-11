@@ -4,7 +4,10 @@
 // Make the code compile and the tests pass!
 // Execute `rustlings hint structs3` or use the `hint` watch subcommand for a hint.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 49a6a368ec190759c9dec4c236d73695d2a616ed
 #[derive(Debug)]
 struct Package {
     sender_country: String,
@@ -30,7 +33,11 @@ impl Package {
     }
 
     fn get_fees(&self, cents_per_gram: i32) -> i32 {
+<<<<<<< HEAD
         cents_per_gram * self.weight_in_grams
+=======
+        cents_per_gram*self.weight_in_grams
+>>>>>>> 49a6a368ec190759c9dec4c236d73695d2a616ed
     }
 }
 
@@ -68,14 +75,21 @@ mod tests {
     }
 
     #[test]
-    fn calculate_transport_fees() {
+    fn calculate_transport_fees_for_light_package() {
         let sender_country = String::from("Spain");
         let recipient_country = String::from("Spain");
 
         let cents_per_gram = 3;
 
-        let package = Package::new(sender_country, recipient_country, 1500);
+        let package = Package::new(sender_country, recipient_country, 1000);
 
-        assert_eq!(package.get_fees(cents_per_gram), 4500);
+        assert_eq!(package.get_fees(cents_per_gram), 3000);
+    }
+
+    #[test]
+    fn calculate_transport_fees_for_heavy_package() {
+        let package = Package::new("Spain".to_string(), "Italy".to_string(), 2000);
+
+        assert_eq!(package.get_fees(3), 6000);
     }
 }
