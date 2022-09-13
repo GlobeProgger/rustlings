@@ -4,10 +4,6 @@
 // Make the code compile and the tests pass!
 // Execute `rustlings hint structs3` or use the `hint` watch subcommand for a hint.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 49a6a368ec190759c9dec4c236d73695d2a616ed
 #[derive(Debug)]
 struct Package {
     sender_country: String,
@@ -33,11 +29,7 @@ impl Package {
     }
 
     fn get_fees(&self, cents_per_gram: i32) -> i32 {
-<<<<<<< HEAD
         cents_per_gram * self.weight_in_grams
-=======
-        cents_per_gram*self.weight_in_grams
->>>>>>> 49a6a368ec190759c9dec4c236d73695d2a616ed
     }
 }
 
