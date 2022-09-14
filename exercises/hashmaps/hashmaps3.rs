@@ -14,8 +14,6 @@
 
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 use std::collections::HashMap;
 
 // A structure to store team name and its goal details.
@@ -40,6 +38,36 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         // will be number of goals conceded from team_2, and similarly
         // goals scored by team_2 will be the number of goals conceded by
         // team_1.
+
+        if !scores.contains_key(&team_1_name) {
+            scores.insert(
+                team_1_name.clone(),
+                Team {
+                    name: team_1_name.clone(),
+                    goals_scored: team_1_score,
+                    goals_conceded: team_2_score,
+                },
+            );
+        } else {
+            let mut team = (scores.get_mut(&team_1_name).unwrap());
+            team.goals_scored += team_1_score;
+            team.goals_conceded += team_2_score;
+        }
+
+        if !scores.contains_key(&team_2_name) {
+            scores.insert(
+                team_2_name.clone(),
+                Team {
+                    name: team_2_name,
+                    goals_scored: team_2_score,
+                    goals_conceded: team_1_score,
+                },
+            );
+        } else {
+            let mut team = (scores.get_mut(&team_2_name).unwrap());
+            team.goals_scored += team_2_score;
+            team.goals_conceded += team_1_score;
+        }
     }
     scores
 }
@@ -53,7 +81,8 @@ mod tests {
             + "England,France,4,2\n"
             + "France,Italy,3,1\n"
             + "Poland,Spain,2,0\n"
-            + "Germany,England,2,1\n";
+            + "Germany,England,2,1\n"
+            + "England,Spain,2,5\n";
         results
     }
 
@@ -73,15 +102,15 @@ mod tests {
     fn validate_team_score_1() {
         let scores = build_scores_table(get_results());
         let team = scores.get("England").unwrap();
-        assert_eq!(team.goals_scored, 5);
-        assert_eq!(team.goals_conceded, 4);
+        assert_eq!(team.goals_scored, 7);
+        assert_eq!(team.goals_conceded, 9);
     }
 
     #[test]
     fn validate_team_score_2() {
         let scores = build_scores_table(get_results());
         let team = scores.get("Spain").unwrap();
-        assert_eq!(team.goals_scored, 0);
-        assert_eq!(team.goals_conceded, 2);
+        assert_eq!(team.goals_scored, 5);
+        assert_eq!(team.goals_conceded, 4);
     }
 }
