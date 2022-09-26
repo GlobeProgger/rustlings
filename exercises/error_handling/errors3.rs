@@ -4,8 +4,6 @@
 // Why not? What should we do to fix it?
 // Execute `rustlings hint errors3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 use std::num::ParseIntError;
 
 fn main() {
@@ -17,7 +15,7 @@ fn main() {
     match cost {
         Ok(cost) => {
             if cost > tokens {
-                println!("----You can't afford that many!");
+                println!("You can't afford that many!");
             } else {
                 tokens -= cost;
                 println!(
