@@ -8,6 +8,7 @@
 //
 // Execute `rustlings hint iterators1` or use the `hint` watch subcommand for a hint.
 
+// find the error in the code and fix it
 fn main() {
     let my_fav_fruits = vec!["banana", "custard apple", "avocado", "peach", "raspberry"];
 
@@ -18,5 +19,5 @@ fn main() {
     assert_eq!(my_iterable_fav_fruits.next(), Some(&"avocado"));
     assert_eq!(my_iterable_fav_fruits.next(), Some(&"peach")); // TODO: Step 3
     assert_eq!(my_iterable_fav_fruits.next(), Some(&"raspberry"));
-    assert_eq!(my_iterable_fav_fruits.next(), None) // TODO: Step 4
+    assert_eq!(my_iterable_fav_fruits.next(), None); // TODO: Step 4
 }
