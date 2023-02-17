@@ -15,7 +15,7 @@ trait AppendBar {
 
 impl AppendBar for String {
     fn append_bar(self) -> Self {
-        format!("{}{}",self, "Bar")
+        self + "Bar"
     }
 }
 
